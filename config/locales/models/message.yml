@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      message:
+        one: Mensagem
+        other: Mensagens
+    attributes:
+      message:
+        name: Nome
+        email: Descrição
+        content: Conteúdo
+        answered: Respondido
