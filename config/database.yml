@@ -10,6 +10,9 @@ development:
   <<: *default
   database: cami_development
 
+production:
+  url: <%= ENV['DATABASE_URL'] %>
+
 test:
   <<: *default
   database: cami_test
