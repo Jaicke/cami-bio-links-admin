@@ -1,0 +1,11 @@
+pt-BR:
+  activerecord:
+    models:
+      bio_link:
+        one: Link da Bio
+        other: Links da Bio
+    attributes:
+      bio_link:
+        name: Nome
+        active: Ativo
+        user: Proprietário

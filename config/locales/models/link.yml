@@ -1,0 +1,11 @@
+pt-BR:
+  activerecord:
+    models:
+      link:
+        one: Link
+        other: Links
+    attributes:
+      link:
+        name: Nome
+        url: URL
+        active: Ativo
