@@ -24,7 +24,7 @@ class LinkPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user.admin?
+    true
   end
 
   class Scope < Scope
