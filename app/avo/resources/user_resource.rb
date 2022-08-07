@@ -16,6 +16,6 @@ class UserResource < Avo::BaseResource
   field :email, as: :text, required: true, name: 'E-mail', sortable: true
   field :secret_key, as: :text, name: 'Secret Key', visible: -> (resource:) { Current.user.admin? }, readonly: true
   field :admin, as: :boolean, name: 'Administrador', visible: -> (resource:) { Current.user.admin? }
-  field :password, as: :password, name: 'Senha'
-  field :password_confirmation, as: :password, name: 'Confirmação da Senha'
+  field :password, as: :password, name: 'Senha', hide_on: [:edit]
+  field :password_confirmation, as: :password, name: 'Confirmação da Senha', hide_on: [:edit]
 end
