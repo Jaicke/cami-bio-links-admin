@@ -5,3 +5,5 @@ pt-BR:
       confirmation: não é igual a %{attribute}
       taken: já está em uso
       not_a_number: não é um número
+      too_short: muito curto(a)
+      invalid: inválido(a)

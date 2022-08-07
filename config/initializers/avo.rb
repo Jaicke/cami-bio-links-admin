@@ -8,14 +8,17 @@ Avo.configure do |config|
 
   ## == Set the context ==
   config.set_context do
-    # Return a context object that gets evaluated in Avo::ApplicationController
+    {
+      user: current_user,
+      params: request.params,
+    }
   end
 
   ## == Authentication ==
-  # config.current_user_method = :current_user
-  # config.authenticate_with do
-  #   warden.authenticate! scope: :user
-  # end
+  config.current_user_method = :current_user
+  config.authenticate_with do
+    warden.authenticate! scope: :user
+  end
 
   ## == Authorization ==
   # config.authorization_methods = {
