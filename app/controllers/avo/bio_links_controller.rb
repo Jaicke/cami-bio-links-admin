@@ -6,7 +6,7 @@ class Avo::BioLinksController < Avo::BaseResourcesController
     unless current_user.admin?
       return redirect_to resources_bio_link_path(current_user.bio_link.id) if current_user.bio_link
 
-      redirect_to root_path, alert: 'Você ainda não possui um Link da Bio, por favor, fale com o administrador.'
+      return redirect_to root_path, alert: 'Você ainda não possui um Link da Bio, por favor, fale com o administrador.'
     end
 
     super
