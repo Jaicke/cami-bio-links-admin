@@ -1,11 +1,24 @@
 class Link < ApplicationRecord
-  default_scope { by_user(::Avo::App.context[:user]).ordered }
+  default_scope do
+    user = ::Avo::App.context[:user]
 
-  belongs_to :bio_link, inverse_of: :links
+    unless user&.admin?
+      by_user(user).ordered
+    end
+  end
 
-  validates :order, uniqueness: { scope: :bio_link_id }
+  belongs_to :user, inverse_of: :links
+  belongs_to :bio_link
 
-  scope :by_user, -> (user) { includes(:bio_link).where(bio_links: { user_id: user.id }) }
+  scope :by_user, -> (user) { where(user_id: user.id) }
   scope :active, -> { where(active: true) }
   scope :ordered, -> { order(order: :asc) }
+
+  before_validation :set_user, on: :create, if: -> { user_id.blank? }
+
+  private
+
+  def set_user
+    self.user_id = Current.user.id
+  end
 end

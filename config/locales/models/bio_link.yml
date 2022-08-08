@@ -2,8 +2,8 @@ pt-BR:
   activerecord:
     models:
       bio_link:
-        one: Link da Bio
-        other: Links da Bio
+        one: Bio
+        other: Bio
     attributes:
       bio_link:
         name: Nome

@@ -8,7 +8,7 @@ class BioLinkResource < Avo::BaseResource
   field :user, as: :belongs_to, attach_scope: -> { query.non_admins }, hide_on: [:show]
   field :links, as: :has_many
 
-  field :id, as: :id, visible: -> (resource:) { Current.user.admin? }
+  field :id, as: :id, visible: -> (resource:) { context[:user].admin? }
   field :name, as: :text, sortable: true, placeholder: 'bio.camidesign.com.br', name: 'Nome'
 
   self.translation_key = 'activerecord.models.bio_link'
