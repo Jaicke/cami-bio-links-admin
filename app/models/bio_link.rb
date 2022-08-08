@@ -1,9 +1,11 @@
 class BioLink < ApplicationRecord
   default_scope do
-    user = ::Avo::App.context[:user]
+    user = ::Avo::App.context&.dig(:user)
 
-    unless user&.admin?
-      by_user(user)
+    if user
+      unless user.admin?
+        by_user(user)
+      end
     end
   end
 
