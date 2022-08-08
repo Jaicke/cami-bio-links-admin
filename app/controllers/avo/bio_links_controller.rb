@@ -1,9 +1,12 @@
 class Avo::BioLinksController < Avo::BaseResourcesController
   before_action :authorize_user, except: :show
+  before_action :parse_params, on: :update
 
   def index
     unless current_user.admin?
-      redirect_to resources_bio_link_path(current_user.bio_link.id)
+      return redirect_to resources_bio_link_path(current_user.bio_link.id) if current_user.bio_link
+
+      redirect_to root_path, alert: 'Você ainda não possui um Link da Bio, por favor, fale com o administrador.'
     end
 
     super
@@ -19,5 +22,9 @@ class Avo::BioLinksController < Avo::BaseResourcesController
 
   def authorize_user
     authorize :bio_link
+  end
+
+  def parse_params
+    params[:bio_link] ||= params[:biolink]
   end
 end

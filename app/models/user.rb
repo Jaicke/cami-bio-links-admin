@@ -6,7 +6,9 @@ class User < ApplicationRecord
 
   scope :non_admins, -> { where admin: false }
 
-  has_one :bio_link
+  has_one :bio_link, dependent: :destroy
+
+  has_many :links, inverse_of: :user, dependent: :destroy
 
   before_create :generate_secret_key
 
