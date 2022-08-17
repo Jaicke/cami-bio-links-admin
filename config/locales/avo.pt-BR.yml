@@ -23,6 +23,7 @@ pt-BR:
     you_missed_something_check_form: 'Você pode ter esquecido algo. Por favor, cheque o formulário.'
     remove_selection: 'Remover seleção'
     select_item: 'Selecionar item'
+    select_all: 'Selecionar todos'
     delete_file: 'Deletar arquivo'
     delete: 'deletar'
     delete_item: 'Deletar %{item}'
